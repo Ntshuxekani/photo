@@ -1,0 +1,19 @@
+/* home.component.css */
+.home-container {
+    background-image: url('/assets/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+  
+  .home-content {
+    background: rgba(0, 0, 0, 0.5); /* Optional: Add a dark overlay for better text readability */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  

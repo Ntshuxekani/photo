@@ -1,0 +1,31 @@
+.navbar {
+    background-color: #f8f9fa; /* Set the background color */
+    padding: 10px 20px; /* Add some padding */
+  }
+  
+  .navbar-links {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    display: flex; /* Display items in a row */
+    justify-content: space-around; /* Distribute items evenly */
+    align-items: center; /* Align items vertically in the center */
+  }
+  
+  .navbar-item {
+    margin: 0 10px; /* Add some margin between items */
+  }
+  
+  .navbar-item a {
+    text-decoration: none; /* Remove underline from links */
+    color: #000; /* Set link color */
+    display: block; /* Make links block elements */
+    padding: 10px 15px; /* Add some padding to links */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    transition: background-color 0.3s; /* Add transition for background color */
+  }
+  
+  .navbar-item a:hover {
+    background-color: #e2e6ea; /* Change background color on hover */
+  }
+  
