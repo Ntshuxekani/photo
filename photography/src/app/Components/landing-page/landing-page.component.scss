@@ -1,0 +1,77 @@
+/* landing-page.component.css */
+.landing-container {
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    background-image: url('/assets/bbg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full viewport height */
+   
+  }
+  
+  .header {
+    background: hsl(199, 54%, 90%); /* Primary Blue */
+    padding: 50px 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid hsl(0, 0%, 80%); /* Slightly darker gray border */
+  }
+  
+  .header h1 {
+    font-size: 2.5em;
+    margin: 0;
+    color: hsl(0, 0%, 10%); /* Darker text color for contrast */
+  }
+  
+  .header p {
+    font-size: 1.2em;
+    color: hsl(0, 0%, 50%); /* Neutral Gray for subtitle */
+  }
+  
+  .intro, .features, .call-to-action {
+    margin: 40px 0;
+  }
+  
+  .features {
+    display: flex;
+    justify-content: space-around;
+    background-color: hsl(199, 54%, 90%); /* Lighter tint of Primary Blue for feature background */
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .feature {
+    max-width: 300px;
+    padding: 10px;
+  }
+  
+  .feature h3 {
+    font-size: 1.5em;
+    color: hsl(199, 54%, 55%); /* Darker Blue for headings */
+  }
+  
+  .feature p {
+    font-size: 1em;
+    color: hsl(0, 0%, 40%); /* Slightly darker text color for better readability */
+  }
+  
+  .call-to-action {
+    margin-top: 30px;
+  }
+  
+  .call-to-action .btn {
+    background-color: hsl(29, 100%, 65%); /* Complementary Orange for button */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .call-to-action .btn:hover {
+    background-color: hsl(29, 100%, 55%); /* Darker shade of orange on hover */
+  }
+  

@@ -1,1 +1,32 @@
-<p>profile works!</p>
+<!-- photographer-profile.component.html -->
+<div class="profile-background">
+    <div class="profile-container">
+      <div class="profile-card">
+        <h2>Photographer Profile</h2>
+        <form (ngSubmit)="onSubmit()" #profileForm="ngForm">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" [(ngModel)]="photographer.name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="surname">Surname:</label>
+            <input type="text" id="surname" [(ngModel)]="photographer.surname" name="surname" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" [(ngModel)]="photographer.email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="bio">Bio:</label>
+            <textarea id="bio" [(ngModel)]="photographer.bio" name="bio" rows="4" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="portfolio">Portfolio URL:</label>
+            <input type="text" id="portfolio" [(ngModel)]="photographer.portfolio" name="portfolio">
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="!profileForm.form.valid">Update Profile</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

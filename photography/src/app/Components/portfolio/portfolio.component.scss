@@ -1,0 +1,38 @@
+/* portfolio.component.css */
+.portfolio-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .portfolio-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .portfolio-item {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .portfolio-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .portfolio-item h3 {
+    margin: 10px 0;
+    color: #0056b3;
+  }
+  
+  .portfolio-item p {
+    padding: 0 10px 10px;
+    color: #555;
+  }
+  

@@ -1,1 +1,12 @@
-<p>portfolio works!</p>
+<!-- portfolio.component.html -->
+<div class="portfolio-container">
+    <h2>My Portfolio</h2>
+    <div class="portfolio-grid">
+      <div *ngFor="let work of portfolio" class="portfolio-item">
+        <img [src]="work.imageUrl" alt="{{work.title}}">
+        <h3>{{work.title}}</h3>
+        <p>{{work.description}}</p>
+      </div>
+    </div>
+  </div>
+  

@@ -7,16 +7,20 @@ import { BookingComponent } from './Components/booking/booking.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { LandingPageComponent } from './Components/landing-page/landing-page.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+{ path: '', redirectTo: '/landing', pathMatch: 'full' },
+  { path: 'landing', component: LandingPageComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'portfolio', component: PortfolioComponent },
   { path: 'booking', component: BookingComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'navbar', component: NavbarComponent }
+  { path: 'navbar', component: NavbarComponent },
+  { path: '**', redirectTo: '/landing' }
+  
 ];
 
 @NgModule({
