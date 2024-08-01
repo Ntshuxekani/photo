@@ -10,22 +10,24 @@ import { AuthService } from 'src/app/Services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  user = {
-    email: '',
-    password: ''
-  };
+  email: string = '';
+  password: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   onSubmit() {
-    this.authService.login(this.user.email, this.user.password).subscribe(
+    this.authService.login(this.email, this.password).subscribe(
       response => {
-        console.log('Login successful');
-        // Navigate to home or dashboard page on successful login
-        this.router.navigate(['/home']);
+        console.log('Login successful', response);
+        localStorage.setItem('token', response.token);
+        this.router.navigate(['/dashboard']);
       },
       error => {
         console.error('Login failed', error);
+        alert('Login failed, please try again');
       }
     );
   }
