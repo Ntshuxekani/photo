@@ -1,8 +1,8 @@
 package com.photoshoot.snapbooking.controller;
 
+import com.photoshoot.snapbooking.entity.User;  // Correct import
 import com.photoshoot.snapbooking.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,4 +22,3 @@ public class UserController {
     return userService.findByEmail(email);
   }
 }
-
