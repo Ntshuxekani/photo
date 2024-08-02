@@ -20,10 +20,10 @@ public class BookingController {
     return bookingService.saveBooking(booking);
   }
 
-  @GetMapping("/photographer/{photographerId}")
-  public List<Booking> getBookingsByPhotographerId(@PathVariable Long photographerId) {
-    return bookingService.getBookingsByPhotographerId(photographerId);
-  }
+ // @GetMapping("/photographer/{photographerId}")
+ // public List<Booking> getBookingsByPhotographerId(@PathVariable Long photographerId) {
+   /// return bookingService.getBookingsByPhotographerId(photographerId);
+  //}
 
   @GetMapping("/client/{clientId}")
   public List<Booking> getBookingsByClientId(@PathVariable Long clientId) {

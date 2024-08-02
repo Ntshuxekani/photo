@@ -19,9 +19,9 @@ public class BookingService {
     return bookingRepository.save(booking);
   }
 
-  public List<Booking> getBookingsByPhotographerId(Long photographerId) {
-    return bookingRepository.findByPhotographerId(photographerId);
-  }
+  //public List<Booking> getBookingsByPhotographerId(Long photographerId) {
+   // return bookingRepository.findByPhotographerId(photographerId);
+  //}
 
   public List<Booking> getBookingsByClientId(Long clientId) {
     return bookingRepository.findByClientId(clientId);

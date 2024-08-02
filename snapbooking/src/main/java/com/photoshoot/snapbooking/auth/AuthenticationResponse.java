@@ -1,29 +1,29 @@
 package com.photoshoot.snapbooking.auth;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@Builder
+
+@NoArgsConstructor
 public class AuthenticationResponse {
-  private String email;
   private String token;
+  private String message;
+  private String status;
+  private String username;
 
-  // Default constructor
-  public AuthenticationResponse() {
-  }
-
-  // Constructor with parameters
-  public AuthenticationResponse(String email, String token) {
-    this.email = email;
+  // Constructor
+  public AuthenticationResponse(String token, String message, String status, String username) {
     this.token = token;
+    this.message = message;
+    this.status = status;
+    this.username = username;
   }
 
-  // Getter and setter methods
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
+  // Getters and Setters
   public String getToken() {
     return token;
   }
@@ -31,5 +31,66 @@ public class AuthenticationResponse {
   public void setToken(String token) {
     this.token = token;
   }
+
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+  // Builder class
+  public static class Builder {
+    private String token;
+    private String message;
+    private String status;
+    private String username;
+
+    public Builder token(String token) {
+      this.token = token;
+      return this;
+    }
+
+    public Builder message(String message) {
+      this.message = message;
+      return this;
+    }
+
+    public Builder status(String status) {
+      this.status = status;
+      return this;
+    }
+
+    public Builder username(String username) {
+      this.username = username;
+      return this;
+    }
+
+    public AuthenticationResponse build() {
+      return new AuthenticationResponse(token, message, status, username);
+    }
+  }
+
+  public static Builder builder() {
+    return new Builder();
+  }
+
 }
 

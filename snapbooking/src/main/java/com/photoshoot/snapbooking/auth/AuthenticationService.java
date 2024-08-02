@@ -1,53 +1,74 @@
 package com.photoshoot.snapbooking.auth;
 
-import com.photoshoot.snapbooking.config.JwtService;
-import com.photoshoot.snapbooking.entity.User;
+import com.photoshoot.snapbooking.entity.Role;
+import com.photoshoot.snapbooking.entity.User; // Ensure this import is correct
 import com.photoshoot.snapbooking.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.photoshoot.snapbooking.config.JwtService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
+@RequiredArgsConstructor
 public class AuthenticationService {
 
-  @Autowired
-  private AuthenticationManager authenticationManager;
+  private final UserRepository repository;
+  private final PasswordEncoder passwordEncoder;
+  private final JwtService jwtService;
+  private final AuthenticationManager authenticationManager;
 
-  @Autowired
-  private UserRepository userRepository;
-
-  @Autowired
-  private PasswordEncoder passwordEncoder;
-
-  @Autowired
-  private JwtService jwtService;
+  public AuthenticationResponse register(RegisterRequest request) {
+    User user = User.builder()
+      .firstname(request.getName())
+      .lastname(request.getSurname())
+      .email(request.getEmail())
+      .password(passwordEncoder.encode(request.getPassword()))
+      .role(Role.valueOf(request.getRole())) // Assign role from the request
+      .build();
+    repository.save(user);
+    var jwtToken = jwtService.generateToken(user, user.getId(), user.getRole());
+    return AuthenticationResponse.builder()
+      .token(jwtToken)
+      .build();
+  }
 
   public AuthenticationResponse authenticate(AuthenticationRequest request) {
-    Authentication authentication = authenticationManager.authenticate(
+    authenticationManager.authenticate(
       new UsernamePasswordAuthenticationToken(
         request.getEmail(),
         request.getPassword()
       )
     );
-    SecurityContextHolder.getContext().setAuthentication(authentication);
+    var user = repository.findByEmail(request.getEmail())
+      .orElseThrow(() -> new RuntimeException("User not found")); // Handle Optional correctly
+    var jwtToken = jwtService.generateToken(user, user.getId(), user.getRole());
+    return AuthenticationResponse.builder()
+      .token(jwtToken)
+      .message("Login Successful")
+      .status("OK")
+      .build();
+  }
 
-    // Cast to UserDetails
-    UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-
-    // Load user from repository if necessary (in case additional user info is needed)
-    User user = userRepository.findByEmail(userDetails.getUsername());
-
-    if (user == null) {
-      throw new RuntimeException("User not found");
+  public String getLoggedInUserEmail() {
+    var authentication = SecurityContextHolder.getContext().getAuthentication();
+    if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
+      return ((UserDetails) authentication.getPrincipal()).getUsername();
     }
+    return null;
+  }
 
-    String token = jwtService.generateToken(userDetails);
+  public List<User> getAllUsers() {
+    return repository.findAll();
+  }
 
-    return new AuthenticationResponse(userDetails.getUsername(), token);
+  public void deleteUserById(Long userId) { // Changed Integer to Long
+    var user = repository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
+    repository.delete(user);
   }
 }

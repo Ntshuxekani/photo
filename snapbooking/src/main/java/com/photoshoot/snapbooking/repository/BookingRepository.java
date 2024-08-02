@@ -6,6 +6,5 @@ import java.util.List;
 
 public interface BookingRepository extends JpaRepository<Booking, Long> {
   List<Booking> findByPhotographerId(Long photographerId);
-  List<Booking> findByClientId(Long clientId);
+  List<Booking> findByClientId(Long clientId); // This method will now work
 }
-

@@ -1,9 +1,13 @@
 package com.photoshoot.snapbooking.repository;
 
-import com.photoshoot.snapbooking.entity.User;  // Correct import
+import com.photoshoot.snapbooking.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
-  User findByEmail(String email);
-}
+import java.util.Optional;
 
+public interface UserRepository extends JpaRepository<User, Long> {
+  Optional<User> findByEmail(String email);
+
+
+  Optional<User> findByResetToken(String resetToken);
+}
