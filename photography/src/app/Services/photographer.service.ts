@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PhotographerService {
-  private apiUrl = 'http://your-backend-api/photographer'; // Replace with your backend API URL
+  private apiUrl = 'http://your-backend-api/photographer'; 
 
   constructor(private http: HttpClient) {}
 

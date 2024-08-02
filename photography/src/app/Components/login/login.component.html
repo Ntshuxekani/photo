@@ -1,17 +1,13 @@
-<app-navbar></app-navbar>
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" [(ngModel)]="email" name="email" required>
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" [(ngModel)]="password" name="password" required>
+  </div>
+  <button type="submit">Login</button>
+</form>
+<p>Don't have an account? <a routerLink="/register-client">Register as a Client</a> or <a routerLink="/register-photographer">Register as a Photographer</a></p>
 
-
-<div class="login-container">
-  <h2>Login</h2>
-  <form (ngSubmit)="onSubmit()">
-    <div>
-      <label for="email">Email:</label>
-      <input type="email" id="email" [(ngModel)]="email" name="email" required>
-    </div>
-    <div>
-      <label for="password">Password:</label>
-      <input type="password" id="password" [(ngModel)]="password" name="password" required>
-    </div>
-    <button type="submit">Login</button>
-  </form>
-</div>

@@ -1,8 +1,6 @@
-// login.component.ts
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AuthService } from 'src/app/Services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,22 +11,22 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
 
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
-  onSubmit() {
-    this.authService.login(this.email, this.password).subscribe(
+  login() {
+    const loginData = { email: this.email, password: this.password };
+    this.authService.login(loginData).subscribe(
       response => {
-        console.log('Login successful', response);
         localStorage.setItem('token', response.token);
         this.router.navigate(['/dashboard']);
       },
       error => {
-        console.error('Login failed', error);
-        alert('Login failed, please try again');
+        console.error('Login error:', error);
       }
     );
+  }
+
+  onSubmit() {
+    this.login();
   }
 }
