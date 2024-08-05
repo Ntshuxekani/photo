@@ -6,7 +6,7 @@ import { PhotographerService } from 'src/app/Services/photographer.service';
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
-  styleUrls: ['./booking.component.css']
+  styleUrls: ['./booking.component.scss']
 })
 export class BookingComponent implements OnInit {
   booking: any = {};

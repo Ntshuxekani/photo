@@ -7,7 +7,7 @@ import { PhotographerService } from 'src/app/Services/photographer.service'; // 
 @Component({
   selector: 'app-photographer-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
   photographer = {

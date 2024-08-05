@@ -5,7 +5,7 @@ import { PhotographerService } from 'src/app/Services/photographer.service';
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
-  styleUrls: ['./portfolio.component.css']
+  styleUrls: ['./portfolio.component.scss']
 })
 export class PortfolioComponent implements OnInit {
   portfolio: any[] = [];

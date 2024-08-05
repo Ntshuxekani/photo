@@ -28,6 +28,44 @@
     font-size: 1.2em;
     color: hsl(0, 0%, 50%); /* Neutral Gray for subtitle */
   }
+  .photoshoot-categories {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.photoshoot-categories h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: hsl(0, 0%, 10%);
+}
+
+.category {
+    display: inline-block;
+    width: 22%;
+    margin: 1%;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.category img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid hsl(0, 0%, 80%);
+}
+
+.category h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: hsl(199, 54%, 55%);
+}
+
+.category p {
+    font-size: 1em;
+    color: hsl(0, 0%, 40%);
+    padding: 0 10px;
+}
+
   
   .intro, .features, .call-to-action {
     margin: 40px 0;

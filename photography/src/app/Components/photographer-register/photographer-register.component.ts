@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-photographer-register',
   templateUrl: './photographer-register.component.html',
-  styleUrls: ['./photographer-register.component.css']
+  styleUrls: ['./photographer-register.component.scss']
 })
 export class PhotographerRegisterComponent {
   name: string = '';
