@@ -41,12 +41,11 @@ public class SecurityConfiguration {
 
 
 
-        .requestMatchers("/api/**", "/api/v1/auth/reset-password", "/api/v1/auth/forgot-password" ,"/api/v1/demo-controller", "/api/bounty", "/api/bounty/**", "/api/reports", "/api/reports/**", "/orgProfile", "/orgProfile/**")
-
+        .requestMatchers("/api/**")
         .permitAll()
         .requestMatchers("/api/admin/**").hasRole("ADMIN")
-        .requestMatchers("/api/hunter/**").hasRole("HUNTER")
-        .requestMatchers("/api/organization/**").hasRole("ORGANIZATION")
+        .requestMatchers("/api/photographer/**").hasRole("PHOTOGRAPHER")
+        .requestMatchers("/api/client/**").hasRole("CLIENT")
         .anyRequest().authenticated()
       )
       .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
